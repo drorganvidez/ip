@@ -9,12 +9,6 @@ if [[ ! $ip_address =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   exit 1
 fi
 
-# Verificar si la dirección IP está disponible mediante un ping
-if ping -c 1 "$ip_address" &>/dev/null; then
-  echo "La dirección IP $ip_address ya está en uso. Abortando."
-  exit 1
-fi
-
 # Crear el contenido del archivo de configuración
 config_content="# This is the network config written by 'subiquity'
 network:
